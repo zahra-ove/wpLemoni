@@ -19,14 +19,35 @@
  */
 
 // ** MySQL settings - You can get this info from your web host ** //
+if(file_exists( dirname(__FILE__). '/local-config.php'))
+{ 
+	define( 'WP_LOCAL_DEV', true ); 
+	include(dirname(__FILE__). '/local-config.php');
+	
+
+
+}
+else
+{
+		define( 'WP_LOCAL_DEV', false ); 
+		/** The name of the database for WordPress */
+		define( 'DB_NAME', '' );
+
+		/** MySQL database username */
+		define( 'DB_USER', '' );
+
+		/** MySQL database password */
+		define( 'DB_PASSWORD', '' );	
+}
+
 /** The name of the database for WordPress */
-define( 'DB_NAME', '' );
+//define( 'DB_NAME', 'wplemoni_db' );
 
 /** MySQL database username */
-define( 'DB_USER', '' );
+//define( 'DB_USER', 'root' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', '' );
+//define( 'DB_PASSWORD', '' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );
@@ -63,7 +84,7 @@ define( 'NONCE_SALT',       'Hl%,z<de=3=pdcg&=i:4;(|MQFqo$wSk8Rn^P5jcu,TF1-{9wW`
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix = '';
+$table_prefix = 'lmn_';
 
 /**
  * For developers: WordPress debugging mode.
